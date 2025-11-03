@@ -1,0 +1,14 @@
+artifacts_root: artifacts
+
+data_ingestion:
+
+  root_dir: artifacts/data_ingestion
+  
+
+  source_URL_1: https://github.com/Nilansh-garg/chicken-disease-classification-project/raw/refs/heads/main/healthy.zip
+  local_data_file_1: artifacts/data_ingestion/healthy.zip
+
+  source_URL_2: https://github.com/Nilansh-garg/chicken-disease-classification-project/raw/refs/heads/main/procci.zip
+  local_data_file_2: artifacts/data_ingestion/procci.zip
+
+  unzip_dir : artifacts/data_ingestion
