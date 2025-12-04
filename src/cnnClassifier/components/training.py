@@ -1,6 +1,9 @@
 from cnnClassifier.entity.config_entity import TrainingConfig
 import tensorflow as tf
 from pathlib import Path
+import urllib.request as request
+from zipfile import ZipFile
+tf.config.run_functions_eagerly(True) 
 
 class Training:
     def __init__(self, config: TrainingConfig):
@@ -61,4 +64,9 @@ class Training:
             callbacks = callback_list
         )
             
-        self.save_model(self.model, self.config.trained_model_path)
+        
+        # --- TEMPORARY AGGRESSIVE SAVE ---
+        print(f"--- DEBUG: Attempting to save model to: {self.config.trained_model_path} ---")
+        self.save_model(self.model, self.config.trained_model_path) 
+        print(f"--- SUCCESS: Model save command executed. ---")
+        # --------------------------------- 

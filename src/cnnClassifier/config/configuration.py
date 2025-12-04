@@ -60,25 +60,25 @@ class ConfigurationManager:
 
         
     def get_prepare_callback_config(self) -> PrepareCallbacksConfig:
-            config = self.config.prepare_callbacks
-            model_chkt_dir = os.path.dirname(config.checkpoint_model_filepath)
-            create_directories([
-                Path(model_chkt_dir),
-                Path(config.tensorboard_root_log_dir)
-            ])
-            prepare_callback_config = PrepareCallbacksConfig(
-                root_dir = Path(config.root_dir),
-                tensorboard_rot_log_dir= Path(config.tensorboard_root_log_dir),
-                checkpoint_model_filepath=Path(config.checkpoint_model_filepath)
-            )
-            
-            return prepare_callback_config
+        config = self.config.prepare_callbacks
+        model_chkt_dir = os.path.dirname(config.checkpoint_model_filepath)
+        create_directories([
+            Path(model_chkt_dir),
+            Path(config.tensorboard_root_log_dir)
+        ])
+        prepare_callback_config = PrepareCallbacksConfig(
+            root_dir = Path(config.root_dir),
+            tensorboard_rot_log_dir= Path(config.tensorboard_root_log_dir),
+            checkpoint_model_filepath=Path(config.checkpoint_model_filepath)
+        )
+        
+        return prepare_callback_config
         
     def get_training_config(self) -> TrainingConfig:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
-        training_data = os.path.join(self.config.data_ingestion.unzip_dir,"../data_ingestion")
+        training_data = os.path.join(self.config.data_ingestion.unzip_dir)
         create_directories([
             Path(training.root_dir)
         ])
